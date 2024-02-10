@@ -1,11 +1,18 @@
 import express from 'express'
 import usuarioRoutes from './routes/usuarioRoutes.js'
 
-const app = express();
+const app = express()
 
+
+
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+
+app.use( express.static('public'))
 
 //Routing
-app.use('/', usuarioRoutes);
+app.use('/auth', usuarioRoutes);
 
 
 const port  = 3000;
